@@ -29,13 +29,22 @@ function transaction(){
   }
 }
 
+function makeTransaction() {
+  document.getElementById("transactionDetails").show();
+}
+
+function makeNewAccount() {
+
+}
+
+document.getElementById("enter").addEventListener("click", makeTransaction);
 
 // User logic
   $(function(){
 
     $("#formOne").submit(function(event){
       event.preventDefault();
-      // all of our variables
+      document.getElementById("enter").addEventListener("click", makeTransaction);
       var savings = $("#savings").val();
       var checking = $("#checking").val();
       var amount = parseInt($("#amount").val());
@@ -43,8 +52,9 @@ function transaction(){
       var newBalance = newBankAccount.transaction(amount);
       transaction();
 
-    $("#formOne").fadeIn();
-    $("#balance").text(newBalance);
-    $("#hidden").fadeIn();
+
+    // $("#formOne").fadeIn();
+    // $("#balance").text(newBalance);
+    // $("#hidden").fadeIn();
     });
   });
