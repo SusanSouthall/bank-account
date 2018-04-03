@@ -1,3 +1,5 @@
+//Business logic
+
 var name = name;
 var initDeposit = initDeposit;
 var balance = "";
@@ -8,14 +10,41 @@ function BankAccount(name, initDeposit){
   this.balance = initDeposit;
 }
 
-BankAccount.prototype.transaction = function(deposit, withdraw) {
+BankAccount.prototype.deposit = function(deposit) {
   var newBalance;
   newBalance = this.balance + deposit;
-  newBalance = this.balance - withdraw;
   return newBalance;
 }
 
-// var addDeposit = addDeposit;
-// var withdraw = withdraw;
-// var newBalance = "";
-//
+BankAccount.prototype.withdrawal = function(withdraw) {
+  var newBalance;
+  newBalance = this.balance - withdraw;
+  return newBalance;
+}
+function transaction(){
+  if(document.getElementById("deposit").selected = true) {
+    return newBalance;
+  }else if (document.getElementById("withdrawal").selected = true){
+    return newBalance;
+  }
+}
+
+
+// User logic
+  $(function(){
+
+    $("#formOne").submit(function(event){
+      event.preventDefault();
+      // all of our variables
+      var savings = $("#savings").val();
+      var checking = $("#checking").val();
+      var amount = parseInt($("#amount").val());
+      var newBankAccount = new BankAccount(name, initDeposit);
+      var newBalance = newBankAccount.transaction(amount);
+      transaction();
+
+    $("#formOne").fadeIn();
+    $("#balance").text(newBalance);
+    $("#hidden").fadeIn();
+    });
+  });
